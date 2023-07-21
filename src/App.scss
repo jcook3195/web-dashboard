@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+.App {
+  background-color: #353535;
+  padding-bottom: 2em;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: #fff;
+  }
+}

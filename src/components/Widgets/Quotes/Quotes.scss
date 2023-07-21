@@ -1,0 +1,18 @@
+.quote-card {
+  .card-body,
+  .card-footer {
+    p {
+      color: #000;
+    }
+  }
+
+  .card-footer {
+    p {
+      font-size: 0.75em;
+    }
+  }
+
+  .card-title {
+    color: #000;
+  }
+}
