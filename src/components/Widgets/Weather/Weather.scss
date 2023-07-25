@@ -1,0 +1,28 @@
+.weather-row {
+  padding: 1rem;
+  border-radius: 0.5em;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+  }
+
+  .current-weather {
+    box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    border-radius: 0.5em;
+    width: 90%;
+    margin: 3rem auto;
+    padding: 0.75em;
+  }
+}
