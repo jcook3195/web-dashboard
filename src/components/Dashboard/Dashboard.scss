@@ -1,1 +1,18 @@
+.greeting-container {
+  background-color: #e9c46a;
+  h2 {
+    font-family: "Courgette", cursive;
+  }
+}
 
+.pul-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #264653;
+
+  h1 {
+    font-size: 4rem;
+  }
+}

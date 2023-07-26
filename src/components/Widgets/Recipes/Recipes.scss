@@ -15,8 +15,11 @@
     justify-content: center;
     padding: 5px;
     box-sizing: border-box;
-    width: 48%;
+    width: 23%;
     transition: all linear 200ms;
+    box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
 
     &:hover {
       transform: scale(1.005);
@@ -40,8 +43,13 @@
     .card-body {
       text-align: center;
 
+      .recipe-title-container {
+        min-height: 6rem;
+      }
+
       img {
         margin: 1rem auto;
+        border-radius: 50%;
       }
       .recipe-text {
         color: #000;
