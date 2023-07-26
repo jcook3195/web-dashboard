@@ -128,6 +128,16 @@ const Weather = () => {
           </div>
         </div>
       </div>
+      <div className="row">
+        <div className="col-12 text-center">
+          <Button
+            classNames="btn-custom"
+            onClickEvent={refreshWeatherClickHandler}
+          >
+            Refresh Weather
+          </Button>
+        </div>
+      </div>
       <div className="row forecast">
         <div className="col-12">
           <div className="row">
@@ -226,16 +236,6 @@ const Weather = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <Button
-            classNames="btn-primary"
-            onClickEvent={refreshWeatherClickHandler}
-          >
-            Refresh Weather
-          </Button>
         </div>
       </div>
     </div>

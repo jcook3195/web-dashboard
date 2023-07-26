@@ -1,18 +1,10 @@
 .quote-card {
-  .card-body,
-  .card-footer {
-    p {
-      color: #000;
-    }
-  }
-
-  .card-footer {
-    p {
-      font-size: 0.75em;
-    }
-  }
+  box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+  -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
 
   .card-title {
     color: #000;
+    font-family: "Courgette", cursive;
   }
 }

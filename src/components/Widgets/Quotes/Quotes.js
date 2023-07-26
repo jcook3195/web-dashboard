@@ -51,12 +51,14 @@ const Quotes = () => {
   }, []);
 
   return (
-    <div className="card quote-card">
+    <div className="card mt-5 mb-5 quote-card">
       <div className="card-body text-center">
-        <h5 className="card-title">{singleQuote}</h5>
-        <p className="card-text">
+        <h1 className="card-title">
+          <blockquote>"{singleQuote}"</blockquote>
+        </h1>
+        <h2 className="card-text">
           <em>- {singleAuthor}</em>
-        </p>
+        </h2>
       </div>
     </div>
   );

@@ -9,9 +9,9 @@ import Recipes from "../Widgets/Recipes/Recipes";
 
 const greetings = {
   morning: "Good morning, beautiful.",
-  afternoon: "Make the day yours.",
-  evening: "Hope you had a wonderful day!",
-  night: "Good night, sleeping beauty.",
+  afternoon: "Do what you love, and love what you do.",
+  evening: "You're perfect in every way.",
+  night: "Good night, sleep tight.",
 };
 
 const pickGreeting = () => {
@@ -19,11 +19,11 @@ const pickGreeting = () => {
   const now = today.getHours();
   let greeting;
 
-  if (now > 21) {
+  if (now >= 21) {
     greeting = greetings.night;
-  } else if (now > 17) {
+  } else if (now >= 17) {
     greeting = greetings.evening;
-  } else if (now > 12) {
+  } else if (now >= 12) {
     greeting = greetings.afternoon;
   } else if (now >= 0) {
     greeting = greetings.morning;

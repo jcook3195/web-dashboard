@@ -29,53 +29,57 @@ const Recipes = () => {
   }, []);
 
   return (
-    <div className="recipes-row">
-      <h2 className="text-center">Recipes</h2>
-      <div className="recipe-cards d-flex flex-wrap align-items-center">
-        {Object.keys(recipes).map((keyName, i) => (
-          <div
-            className="card recipes-card"
-            key={recipes[keyName].recipe.label}
-          >
-            <a href={recipes[keyName].recipe.uri}>
-              <div className="card-body">
-                <div className="recipe-title-container">
-                  <h5 className="card-title">
-                    {recipes[keyName].recipe.label}
-                  </h5>
+    <div className="row recipes-row">
+      <div className="col-12">
+        <h2 className="text-center recipes-header">The Menu</h2>
+        <div className="recipe-cards d-flex flex-wrap align-items-center mb-5">
+          {Object.keys(recipes).map((keyName, i) => (
+            <div
+              className="card recipes-card"
+              key={recipes[keyName].recipe.label}
+            >
+              <a href={recipes[keyName].recipe.uri}>
+                <div className="card-body">
+                  <div className="recipe-title-container">
+                    <h5 className="card-title">
+                      {recipes[keyName].recipe.label}
+                    </h5>
+                  </div>
+                  <img src={recipes[keyName].recipe.image} alt="" />
+                  <p>
+                    Servings: {recipes[keyName].recipe.yield} | Calories:
+                    {Math.round(
+                      recipes[keyName].recipe.calories /
+                        recipes[keyName].recipe.yield
+                    )}{" "}
+                    | Protien:
+                    {Math.round(
+                      recipes[keyName].recipe.totalNutrients.PROCNT.quantity /
+                        recipes[keyName].recipe.yield
+                    )}
+                    g | Carbs:
+                    {Math.round(
+                      recipes[keyName].recipe.totalNutrients.CHOCDF.quantity /
+                        recipes[keyName].recipe.yield
+                    )}
+                    g | Fats:
+                    {Math.round(
+                      recipes[keyName].recipe.totalNutrients.FAT.quantity /
+                        recipes[keyName].recipe.yield
+                    )}
+                    g
+                  </p>
                 </div>
-                <img src={recipes[keyName].recipe.image} alt="" />
-                <p>
-                  Servings: {recipes[keyName].recipe.yield} | Calories:
-                  {Math.round(
-                    recipes[keyName].recipe.calories /
-                      recipes[keyName].recipe.yield
-                  )}{" "}
-                  | Protien:
-                  {Math.round(
-                    recipes[keyName].recipe.totalNutrients.PROCNT.quantity /
-                      recipes[keyName].recipe.yield
-                  )}
-                  g | Carbs:
-                  {Math.round(
-                    recipes[keyName].recipe.totalNutrients.CHOCDF.quantity /
-                      recipes[keyName].recipe.yield
-                  )}
-                  g | Fats:
-                  {Math.round(
-                    recipes[keyName].recipe.totalNutrients.FAT.quantity /
-                      recipes[keyName].recipe.yield
-                  )}
-                  g
-                </p>
-              </div>
-            </a>
-          </div>
-        ))}
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
-      <Button classNames="btn-primary" onClickEvent={newRecipesClickHandler}>
-        New Recipes
-      </Button>
+      <div className="col-12 text-center">
+        <Button classNames="btn-custom" onClickEvent={newRecipesClickHandler}>
+          New Recipes
+        </Button>
+      </div>
     </div>
   );
 };
