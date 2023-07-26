@@ -1,0 +1,18 @@
+.date-modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  height: 10rem;
+  width: 10rem;
+  background-color: #ef476f;
+  border-radius: 100%;
+
+  h2 {
+    color: #fff;
+    font-weight: 600;
+  }
+}

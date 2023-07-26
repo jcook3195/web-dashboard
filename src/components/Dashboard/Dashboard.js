@@ -3,6 +3,7 @@ import "./Dashboard.scss";
 
 import pul from "../../data/_greetings.json";
 
+import DateModal from "../DateModal/DateModal";
 import Weather from "../Widgets/Weather/Weather";
 import Quotes from "../Widgets/Quotes/Quotes";
 import Recipes from "../Widgets/Recipes/Recipes";
@@ -51,33 +52,36 @@ const Dashboard = (props) => {
   const greeting = pickGreeting();
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-12 text-center p-3 greeting-container">
-          <h2 className="greeting">{greeting}</h2>
+    <React.Fragment>
+      <div className="container-fluid main-container">
+        <DateModal />
+        <div className="row">
+          <div className="col-12 text-center p-3 greeting-container">
+            <h2 className="greeting">{greeting}</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 text-center p-5 pul-container">
+            <h1 className="text-white">{pickUpLine[key]}</h1>
+          </div>
+        </div>
+        <div className="row mb-4">
+          <div className="col-12">
+            <Weather />
+          </div>
+        </div>
+        <div className="row mt-4 mb-4">
+          <div className="col-12">
+            <Quotes />
+          </div>
+        </div>
+        <div className="row mt-4 mb-4">
+          <div className="col-12">
+            <Recipes />
+          </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-12 text-center p-5 pul-container">
-          <h1 className="text-white">{pickUpLine[key]}</h1>
-        </div>
-      </div>
-      <div className="row mb-4">
-        <div className="col-12">
-          <Weather />
-        </div>
-      </div>
-      <div className="row mt-4 mb-4">
-        <div className="col-12">
-          <Quotes />
-        </div>
-      </div>
-      <div className="row mt-4 mb-4">
-        <div className="col-12">
-          <Recipes />
-        </div>
-      </div>
-    </div>
+    </React.Fragment>
   );
 };
 

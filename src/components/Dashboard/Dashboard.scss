@@ -1,19 +1,23 @@
-.greeting-container {
-  background-color: #ef476f;
-  color: #fff;
-  h2 {
-    font-family: "Courgette", cursive;
+.main-container {
+  position: relative;
+
+  .greeting-container {
+    background-color: #ef476f;
+    color: #fff;
+    h2 {
+      font-family: "Courgette", cursive;
+    }
   }
-}
 
-.pul-container {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #264653;
+  .pul-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #264653;
 
-  h1 {
-    font-size: 4rem;
+    h1 {
+      font-size: 4rem;
+    }
   }
 }
