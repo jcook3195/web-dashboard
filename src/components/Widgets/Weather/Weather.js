@@ -154,6 +154,14 @@ const Weather = () => {
                     &deg;
                   </h4>
                 </div>
+                <div className="col-6">
+                  <h5>Rain Chance:</h5>
+                  <h4>{forecastDayOne.daily_will_it_rain}%</h4>
+                </div>
+                <div className="col-6">
+                  <h5>Humidity:</h5>
+                  <h4>{forecastDayOne.avghumidity}%</h4>
+                </div>
               </div>
             </div>
             <div className="col-4">
@@ -175,6 +183,14 @@ const Weather = () => {
                     {forecastDayTwo.mintemp_f}&deg; - {forecastDayTwo.maxtemp_f}
                     &deg;
                   </h4>
+                </div>
+                <div className="col-6">
+                  <h5>Rain Chance:</h5>
+                  <h4>{forecastDayTwo.daily_will_it_rain}%</h4>
+                </div>
+                <div className="col-6">
+                  <h5>Humidity:</h5>
+                  <h4>{forecastDayTwo.avghumidity}%</h4>
                 </div>
               </div>
             </div>
@@ -198,6 +214,14 @@ const Weather = () => {
                     {forecastDayThree.maxtemp_f}
                     &deg;
                   </h4>
+                </div>
+                <div className="col-6">
+                  <h5>Rain Chance:</h5>
+                  <h4>{forecastDayThree.daily_will_it_rain}%</h4>
+                </div>
+                <div className="col-6">
+                  <h5>Humidity:</h5>
+                  <h4>{forecastDayThree.avghumidity}%</h4>
                 </div>
               </div>
             </div>
