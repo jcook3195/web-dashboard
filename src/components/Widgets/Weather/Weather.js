@@ -45,7 +45,7 @@ const Weather = () => {
   useEffect(() => {
     const fetchForecast = async () => {
       const result = await axios(
-        "http://api.weatherapi.com/v1/forecast.json?key=3673c8abbc6948c480e171650232107&q=31023&days=3&aqi=no&alerts=no"
+        "https://api.weatherapi.com/v1/forecast.json?key=3673c8abbc6948c480e171650232107&q=31023&days=3&aqi=no&alerts=no"
       );
 
       console.log("current:");
