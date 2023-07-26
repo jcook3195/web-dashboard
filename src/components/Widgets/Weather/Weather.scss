@@ -16,13 +16,80 @@
     color: #000;
   }
 
+  .condition {
+    h2,
+    img {
+      display: inline-block;
+    }
+
+    img {
+      margin-top: -0.75rem;
+    }
+  }
+
   .current-weather {
+    background-color: #70d6ff;
     box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
     -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
     -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
     border-radius: 0.5em;
     width: 90%;
     margin: 3rem auto;
+    margin-top: -8rem;
     padding: 0.75em;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: #fff;
+    }
+
+    p {
+      font-weight: 600;
+    }
+
+    .current-secondary-data {
+      font-size: 3rem;
+    }
+  }
+
+  .forecast-header {
+    font-weight: 600;
+    font-size: 3.5rem;
+  }
+
+  .forecast-card {
+    background-color: #70d6ff;
+    box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+    border-radius: 0.5em;
+    width: 99%;
+    margin: auto;
+    padding: 0.5rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: #fff;
+    }
+
+    h3,
+    h4,
+    p {
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 2.5rem;
+    }
   }
 }

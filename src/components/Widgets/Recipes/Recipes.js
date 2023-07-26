@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import Button from "../../UIElements/Button";
+
 import "./Recipes.scss";
 
 const Recipes = () => {
@@ -37,7 +39,11 @@ const Recipes = () => {
           >
             <a href={recipes[keyName].recipe.uri}>
               <div className="card-body">
-                <h5 className="card-title">{recipes[keyName].recipe.label}</h5>
+                <div className="recipe-title-container">
+                  <h5 className="card-title">
+                    {recipes[keyName].recipe.label}
+                  </h5>
+                </div>
                 <img src={recipes[keyName].recipe.image} alt="" />
                 <p>
                   Servings: {recipes[keyName].recipe.yield} | Calories:
@@ -67,9 +73,9 @@ const Recipes = () => {
           </div>
         ))}
       </div>
-      <button className="btn btn-secondary" onClick={newRecipesClickHandler}>
+      <Button classNames="btn-primary" onClickEvent={newRecipesClickHandler}>
         New Recipes
-      </button>
+      </Button>
     </div>
   );
 };
