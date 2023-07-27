@@ -7,6 +7,7 @@ import DateModal from "../DateModal/DateModal";
 import Weather from "../Widgets/Weather/Weather";
 import Quotes from "../Widgets/Quotes/Quotes";
 import Recipes from "../Widgets/Recipes/Recipes";
+import TestComp from "../TestComp/TestComp";
 
 const greetings = {
   morning: "Good morning, beautiful.",
@@ -81,6 +82,7 @@ const Dashboard = (props) => {
           </div>
         </div>
       </div>
+      <TestComp />
     </React.Fragment>
   );
 };
