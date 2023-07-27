@@ -7,10 +7,11 @@ import DateModal from "../DateModal/DateModal";
 import Weather from "../Widgets/Weather/Weather";
 import Quotes from "../Widgets/Quotes/Quotes";
 import Recipes from "../Widgets/Recipes/Recipes";
+import TestComp from "../TestComp/TestComp";
 
 const greetings = {
   morning: "Good morning, beautiful.",
-  afternoon: "Do what you love, and love what you do.",
+  afternoon: "Live and love every day like it's your last chance.",
   evening: "You're perfect in every way.",
   night: "Good night, sleep tight.",
 };
@@ -71,7 +72,7 @@ const Dashboard = (props) => {
           </div>
         </div>
         <div className="row mt-4 mb-4">
-          <div className="col-12">
+          <div className="col-12 p-0">
             <Quotes />
           </div>
         </div>
@@ -81,6 +82,7 @@ const Dashboard = (props) => {
           </div>
         </div>
       </div>
+      <TestComp />
     </React.Fragment>
   );
 };

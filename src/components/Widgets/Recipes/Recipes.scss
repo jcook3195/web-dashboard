@@ -15,7 +15,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
     box-sizing: border-box;
     width: 23%;
     transition: all linear 200ms;
@@ -46,12 +45,14 @@
       text-align: center;
 
       .recipe-title-container {
-        min-height: 6rem;
+        min-height: 4rem;
       }
 
       img {
         margin: 1rem auto;
         border-radius: 50%;
+        border: 12px solid #ef476f;
+        height: 260px;
       }
       .recipe-text {
         color: #000;
@@ -60,7 +61,7 @@
 
     .card-footer {
       p {
-        font-size: 0.75em;
+        margin-bottom: 0;
       }
     }
 

@@ -5,6 +5,17 @@ import Button from "../../UIElements/Button";
 
 import "./Recipes.scss";
 
+const limitStrtingLength = (str) => {
+  if (str.length > 40) {
+    const shortStr = str.substring(0, 39);
+    const formattedStr = shortStr.trim() + "...";
+
+    return formattedStr;
+  } else {
+    return str;
+  }
+};
+
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -38,37 +49,49 @@ const Recipes = () => {
               className="card recipes-card"
               key={recipes[keyName].recipe.label}
             >
-              <a href={recipes[keyName].recipe.uri}>
+              <a
+                href={recipes[keyName].recipe.uri}
+                title={recipes[keyName].recipe.label}
+              >
                 <div className="card-body">
                   <div className="recipe-title-container">
                     <h5 className="card-title">
-                      {recipes[keyName].recipe.label}
+                      {limitStrtingLength(recipes[keyName].recipe.label)}
                     </h5>
                   </div>
                   <img src={recipes[keyName].recipe.image} alt="" />
-                  <p>
-                    Servings: {recipes[keyName].recipe.yield} | Calories:
-                    {Math.round(
-                      recipes[keyName].recipe.calories /
-                        recipes[keyName].recipe.yield
-                    )}{" "}
-                    | Protien:
-                    {Math.round(
-                      recipes[keyName].recipe.totalNutrients.PROCNT.quantity /
-                        recipes[keyName].recipe.yield
-                    )}
-                    g | Carbs:
-                    {Math.round(
-                      recipes[keyName].recipe.totalNutrients.CHOCDF.quantity /
-                        recipes[keyName].recipe.yield
-                    )}
-                    g | Fats:
-                    {Math.round(
-                      recipes[keyName].recipe.totalNutrients.FAT.quantity /
-                        recipes[keyName].recipe.yield
-                    )}
-                    g
-                  </p>
+                </div>
+                <div className="card-footer">
+                  <div className="row">
+                    <div className="col-12 text-center">
+                      <p>{recipes[keyName].recipe.yield} Servings</p>
+                    </div>
+                    <div className="col-12 text-center">
+                      <p>
+                        Cals-
+                        {Math.round(
+                          recipes[keyName].recipe.calories /
+                            recipes[keyName].recipe.yield
+                        )}{" "}
+                        | P-
+                        {Math.round(
+                          recipes[keyName].recipe.totalNutrients.PROCNT
+                            .quantity / recipes[keyName].recipe.yield
+                        )}
+                        g | C-
+                        {Math.round(
+                          recipes[keyName].recipe.totalNutrients.CHOCDF
+                            .quantity / recipes[keyName].recipe.yield
+                        )}
+                        g | F-
+                        {Math.round(
+                          recipes[keyName].recipe.totalNutrients.FAT.quantity /
+                            recipes[keyName].recipe.yield
+                        )}
+                        g
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </a>
             </div>

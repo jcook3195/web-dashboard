@@ -22,16 +22,9 @@ const randomIntFromInterval = (min, max) => {
 const rndInt = randomIntFromInterval(1, 50);
 
 const Quotes = () => {
-  // const [quote, setQuote] = useState(pickQuote(quotes));
   const [singleQuote, setSingleQuote] = useState();
   const [singleAuthor, setSingleAuthor] = useState();
   const [quotes, setQuotes] = useState([]);
-
-  // const quoteClickHandler = () => {
-  //   setQuotes(pickQuote(quotes));
-  //   console.log(quotes);
-  // CHANGE OF PLANS IN HERE, NOW YOU NEED TO GENERATE A NEW INDEX BETWEEN 1-50 AND GET A RANDOM QUOTE FROM QUOTES STATE
-  // };
 
   useEffect(() => {
     axios
@@ -51,8 +44,8 @@ const Quotes = () => {
   }, []);
 
   return (
-    <div className="card mt-5 mb-5 quote-card">
-      <div className="card-body text-center">
+    <div className="mt-3 mb-3 quote-card">
+      <div className="text-center">
         <h1 className="card-title">
           <blockquote>"{singleQuote}"</blockquote>
         </h1>

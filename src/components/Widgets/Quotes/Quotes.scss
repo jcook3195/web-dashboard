@@ -1,7 +1,11 @@
 .quote-card {
-  box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
-  -webkit-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
-  -moz-box-shadow: 6px 10px 11px 2px rgba(0, 0, 0, 0.43);
+  background-color: #ef476f;
+  color: #fff;
+  padding: 3rem 1rem;
+
+  blockquote {
+    color: #fff;
+  }
 
   .card-title {
     color: #000;
