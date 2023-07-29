@@ -160,18 +160,6 @@ const Recipes = () => {
                     </div>
                   </div>
                 </a>
-                <div className="row">
-                  <div className="col-12 text-center">
-                    <Button
-                      classNames="btn-custom"
-                      onClickEvent={() =>
-                        saveRecipeClickHandler(recipes[keyName])
-                      }
-                    >
-                      Save Recipe
-                    </Button>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
