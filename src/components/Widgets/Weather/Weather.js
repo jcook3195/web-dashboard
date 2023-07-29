@@ -16,6 +16,22 @@ const daysOfWeek = {
 };
 const today = new Date();
 const dayOfWeek = today.getDay();
+let tomorrow;
+let dayAfterTomorrow;
+
+if (dayOfWeek === 5) {
+  tomorrow = dayOfWeek + 1;
+  dayAfterTomorrow = 0;
+} else if (dayOfWeek === 6) {
+  tomorrow = 0;
+  dayAfterTomorrow = 1;
+} else if (dayOfWeek < 5) {
+  tomorrow = dayOfWeek + 1;
+  dayAfterTomorrow = dayOfWeek + 2;
+} else {
+  tomorrow = 8;
+  dayAfterTomorrow = 8;
+}
 
 const Weather = () => {
   const [currentWeather, setCurrentWeather] = useState([]);
@@ -177,7 +193,7 @@ const Weather = () => {
             <div className="col-4">
               <div className="row forecast-card text-center">
                 <div className="col-12">
-                  <h3>{daysOfWeek[dayOfWeek + 1]}</h3>
+                  <h3>{daysOfWeek[tomorrow]}</h3>
                 </div>
                 <div className="col-12">
                   <span className="condition">
@@ -207,7 +223,7 @@ const Weather = () => {
             <div className="col-4">
               <div className="row forecast-card text-center">
                 <div className="col-12">
-                  <h3>{daysOfWeek[dayOfWeek + 2]}</h3>
+                  <h3>{daysOfWeek[dayAfterTomorrow]}</h3>
                 </div>
                 <div className="col-12">
                   <span className="condition">

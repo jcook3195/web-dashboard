@@ -1,4 +1,4 @@
-import handleSubmit from "../../handles/handlesubmit";
+import createRecipeDoc from "../../firebase/crud";
 import { useRef } from "react";
 
 function TestComp() {
@@ -6,7 +6,7 @@ function TestComp() {
 
   const submithandler = (e) => {
     e.preventDefault();
-    handleSubmit(dataRef.current.value);
+    createRecipeDoc(dataRef.current.value);
     dataRef.current.value = "";
   };
 
