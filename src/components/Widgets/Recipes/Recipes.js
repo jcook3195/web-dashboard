@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "../../UIElements/Button";
 import Notice from "../../UIElements/Notice";
 
-import { createRecipeDoc, getSavedRecipes } from "../../../firebase/crud";
+// import { createRecipeDoc, getSavedRecipes } from "../../../firebase/crud";
 import "./Recipes.scss";
 
 const limitStrtingLength = (str) => {
@@ -26,20 +26,20 @@ const limitStrtingLength = (str) => {
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [savedRecipes, setSavedRecipes] = useState([]);
-  const [showNotice, setShowNotice] = useState(false);
-  const [noticeMsg, setNoticeMsg] = useState("This is a notice");
-  const [noticeType, setNoticeType] = useState("danger");
+  // const [savedRecipes, setSavedRecipes] = useState([]);
+  // const [showNotice, setShowNotice] = useState(false);
+  // const [noticeMsg, setNoticeMsg] = useState("This is a notice");
+  // const [noticeType, setNoticeType] = useState("danger");
 
-  const noticeTimer = (msg) => {
-    setNoticeMsg(msg);
-    setShowNotice(true);
-    setNoticeType("success");
+  // const noticeTimer = (msg) => {
+  //   setNoticeMsg(msg);
+  //   setShowNotice(true);
+  //   setNoticeType("success");
 
-    setTimeout(() => {
-      setShowNotice(false);
-    }, 5000);
-  };
+  //   setTimeout(() => {
+  //     setShowNotice(false);
+  //   }, 5000);
+  // };
 
   const newRecipesClickHandler = async () => {
     const result = await axios(
@@ -49,23 +49,23 @@ const Recipes = () => {
     setRecipes(result.data.hits);
   };
 
-  const saveRecipeClickHandler = (data) => {
-    console.log("saving this recipe...");
-    const recipe = {
-      title: data.recipe.label,
-      url: data.recipe.url,
-      img: data.recipe.image,
-      servings: data.recipe.yield,
-      calories: data.recipe.calories / data.recipe.yield,
-      protein: data.recipe.totalNutrients.PROCNT.quantity / data.recipe.yield,
-      carbs: data.recipe.totalNutrients.CHOCDF.quantity / data.recipe.yield,
-      fats: data.recipe.totalNutrients.FAT.quantity / data.recipe.yield,
-    };
+  // const saveRecipeClickHandler = (data) => {
+  //   console.log("saving this recipe...");
+  //   const recipe = {
+  //     title: data.recipe.label,
+  //     url: data.recipe.url,
+  //     img: data.recipe.image,
+  //     servings: data.recipe.yield,
+  //     calories: data.recipe.calories / data.recipe.yield,
+  //     protein: data.recipe.totalNutrients.PROCNT.quantity / data.recipe.yield,
+  //     carbs: data.recipe.totalNutrients.CHOCDF.quantity / data.recipe.yield,
+  //     fats: data.recipe.totalNutrients.FAT.quantity / data.recipe.yield,
+  //   };
 
-    createRecipeDoc(recipe);
-    console.log(recipe);
-    noticeTimer(`${recipe.title} recipe has been saved.`);
-  };
+  //   createRecipeDoc(recipe);
+  //   console.log(recipe);
+  //   noticeTimer(`${recipe.title} recipe has been saved.`);
+  // };
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -76,31 +76,31 @@ const Recipes = () => {
       setRecipes(result.data.hits);
     };
 
-    const fetchSavedRecipes = async () => {
-      let savedRecipes = [];
-      const result = await getSavedRecipes();
+    // const fetchSavedRecipes = async () => {
+    //   let savedRecipes = [];
+    //   const result = await getSavedRecipes();
 
-      result.forEach((doc) => {
-        savedRecipes.push({
-          id: doc.id,
-          recipe: doc.data(),
-        });
-      });
+    //   result.forEach((doc) => {
+    //     savedRecipes.push({
+    //       id: doc.id,
+    //       recipe: doc.data(),
+    //     });
+    //   });
 
-      console.log("saved recipes new shit");
-      console.log(savedRecipes);
+    //   console.log("saved recipes new shit");
+    //   console.log(savedRecipes);
 
-      setSavedRecipes(result);
-    };
+    //   setSavedRecipes(result);
+    // };
 
     fetchRecipes();
-    fetchSavedRecipes();
+    // fetchSavedRecipes();
   }, []);
 
-  useEffect(() => {
-    console.log("SAVED RECIPES:");
-    console.log(savedRecipes);
-  }, [savedRecipes]);
+  // useEffect(() => {
+  //   console.log("SAVED RECIPES:");
+  //   console.log(savedRecipes);
+  // }, [savedRecipes]);
 
   return (
     <React.Fragment>
@@ -180,20 +180,6 @@ const Recipes = () => {
           <Button classNames="btn-custom" onClickEvent={newRecipesClickHandler}>
             New Recipes
           </Button>
-        </div>
-      </div>
-      {showNotice && <Notice alertType={noticeType}>{noticeMsg}</Notice>}
-      <div className="row saved-recipes-row">
-        <div className="col-12">
-          {Object.keys(savedRecipes).map((key) => (
-            <div key={savedRecipes[key]}>{JSON.stringify(savedRecipes)}</div>
-          ))}
-          {/* {savedRecipes.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
-            <div key={doc.id}>
-              <p>{doc.data().recipe.title}</p>
-            </div>;
-          })} */}
         </div>
       </div>
     </React.Fragment>

@@ -21,10 +21,6 @@ const getSavedRecipes = async () => {
   try {
     const savedRecipes = await getDocs(ref);
 
-    // savedRecipes.forEach((doc) => {
-    //   console.log(doc.id, " => ", doc.data());
-    // });
-
     return savedRecipes;
   } catch (err) {
     console.log(err);
