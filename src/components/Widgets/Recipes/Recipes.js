@@ -61,15 +61,6 @@ const Recipes = () => {
   };
 
   const saveRecipeClickHandler = (data) => {
-    console.log("saving this recipe...");
-    const imgUrl = data.recipe.image;
-    const recUrl = data.recipe.url;
-    const cleanImgUrl = imgUrl.replace(/['"]+/g, "");
-    const cleanRecUrl = recUrl.replace(/['"]+/g, "");
-    console.log("clean urls");
-    console.log(cleanImgUrl);
-    console.log(cleanRecUrl);
-
     const recipe = {
       title: data.recipe.label,
       url: data.recipe.url,
@@ -82,7 +73,6 @@ const Recipes = () => {
     };
 
     createRecipeDoc(recipe);
-    console.log(recipe);
     setNoticeType("success");
     noticeTimer(`${recipe.title} recipe has been saved.`);
     fetchSavedRecipesAfterUpdate();
@@ -122,20 +112,12 @@ const Recipes = () => {
         });
       });
 
-      console.log("saved recipes new shit");
-      console.log(savedRecipes);
-
       setSavedRecipes(savedRecipes);
     };
 
     fetchRecipes();
     fetchSavedRecipes();
   }, []);
-
-  useEffect(() => {
-    console.log("SAVED RECIPES:");
-    console.log(savedRecipes);
-  }, [savedRecipes]);
 
   return (
     <React.Fragment>
@@ -146,7 +128,7 @@ const Recipes = () => {
             {Object.keys(recipes).map((keyName, i) => (
               <div
                 className="card recipes-card"
-                key={recipes[keyName].recipe.label}
+                key={recipes[keyName].recipe.label + i}
               >
                 <a
                   href={recipes[keyName].recipe.url}
@@ -221,7 +203,6 @@ const Recipes = () => {
           </Button>
         </div>
       </div>
-      {showNotice && <Notice alertType={noticeType}>{noticeMsg}</Notice>}
       <div className="row saved-recipes-row mt-5 mb-5">
         <div className="col-12 text-center">
           <hr className="mb-5" />
@@ -237,7 +218,7 @@ const Recipes = () => {
             return (
               <div
                 className="row justify-content-center"
-                key={savedRecipes[key]}
+                key={savedRecipes[key].id}
               >
                 <div className="col-7">
                   <a href={cleanRecUrl} target="_blank" rel="noreferrer">
@@ -299,6 +280,7 @@ const Recipes = () => {
           })}
         </div>
       </div>
+      {showNotice && <Notice alertType={noticeType}>{noticeMsg}</Notice>}
     </React.Fragment>
   );
 };

@@ -20,11 +20,9 @@ const DateModal = () => {
   const date = new Date();
   const month = date.getMonth();
 
-  console.log(month);
-
   return (
     <div className="date-modal-container">
-      <h2>{months[6] + " " + date.getDate()}</h2>
+      <h2>{months[month] + " " + date.getDate()}</h2>
     </div>
   );
 };

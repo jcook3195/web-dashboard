@@ -24,8 +24,6 @@ const createRecipeDoc = (recipeData) => {
 const removeRecipeDoc = async (recipeId) => {
   await deleteDoc(doc(firestore, "recipes", recipeId));
 
-  console.log(recipeId + " deleted");
-
   return true;
 };
 

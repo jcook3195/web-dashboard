@@ -32,8 +32,6 @@ const pickGreeting = () => {
     greeting = "Have a wonderful day!";
   }
 
-  console.log(greeting);
-
   return greeting;
 };
 
