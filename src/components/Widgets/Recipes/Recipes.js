@@ -4,7 +4,11 @@ import axios from "axios";
 import Button from "../../UIElements/Button";
 import Notice from "../../UIElements/Notice";
 
-import { createRecipeDoc, getSavedRecipes } from "../../../firebase/crud";
+import {
+  createRecipeDoc,
+  removeRecipeDoc,
+  getSavedRecipes,
+} from "../../../firebase/crud";
 import "./Recipes.scss";
 
 const limitStrtingLength = (str) => {
@@ -35,7 +39,6 @@ const Recipes = () => {
   const noticeTimer = (msg) => {
     setNoticeMsg(msg);
     setShowNotice(true);
-    setNoticeType("success");
 
     setTimeout(() => {
       setShowNotice(false);
@@ -48,6 +51,13 @@ const Recipes = () => {
     );
 
     setRecipes(result.data.hits);
+  };
+
+  const deleteRecipeClickHandler = async (recipeId, recipeName) => {
+    removeRecipeDoc(recipeId);
+    setNoticeType("danger");
+    noticeTimer(`${recipeName} recipe has been deleted.`);
+    fetchSavedRecipesAfterUpdate();
   };
 
   const saveRecipeClickHandler = (data) => {
@@ -73,11 +83,12 @@ const Recipes = () => {
 
     createRecipeDoc(recipe);
     console.log(recipe);
+    setNoticeType("success");
     noticeTimer(`${recipe.title} recipe has been saved.`);
-    fetchSavedRecipesAfterSave();
+    fetchSavedRecipesAfterUpdate();
   };
 
-  const fetchSavedRecipesAfterSave = async () => {
+  const fetchSavedRecipesAfterUpdate = async () => {
     let savedRecipes = [];
     const result = await getSavedRecipes();
 
@@ -228,7 +239,7 @@ const Recipes = () => {
                 className="row justify-content-center"
                 key={savedRecipes[key]}
               >
-                <div className="col-8">
+                <div className="col-7">
                   <a href={cleanRecUrl} target="_blank" rel="noreferrer">
                     <div className="saved-recipe-container d-flex justify-content-between align-items-center mt-2 mb-2 p-2 pt-4 pb-4">
                       <div className="saved-recipe-img-container">
@@ -269,6 +280,19 @@ const Recipes = () => {
                       </div>
                     </div>
                   </a>
+                </div>
+                <div className="col-1 d-flex justify-content-center align-items-center">
+                  <Button
+                    classNames="btn-custom"
+                    onClickEvent={() =>
+                      deleteRecipeClickHandler(
+                        savedRecipes[key].id,
+                        savedRecipes[key].recipe.recipe.title
+                      )
+                    }
+                  >
+                    X
+                  </Button>
                 </div>
               </div>
             );

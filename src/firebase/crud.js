@@ -1,4 +1,10 @@
-import { addDoc, getDocs, collection } from "@firebase/firestore";
+import {
+  doc,
+  addDoc,
+  deleteDoc,
+  getDocs,
+  collection,
+} from "@firebase/firestore";
 import { firestore } from "../firebase";
 
 const createRecipeDoc = (recipeData) => {
@@ -15,6 +21,14 @@ const createRecipeDoc = (recipeData) => {
   }
 };
 
+const removeRecipeDoc = async (recipeId) => {
+  await deleteDoc(doc(firestore, "recipes", recipeId));
+
+  console.log(recipeId + " deleted");
+
+  return true;
+};
+
 const getSavedRecipes = async () => {
   const ref = collection(firestore, "recipes");
 
@@ -27,4 +41,4 @@ const getSavedRecipes = async () => {
   }
 };
 
-export { createRecipeDoc, getSavedRecipes };
+export { createRecipeDoc, removeRecipeDoc, getSavedRecipes };
