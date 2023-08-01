@@ -8,32 +8,32 @@ import Weather from "../Widgets/Weather/Weather";
 import Quotes from "../Widgets/Quotes/Quotes";
 import Recipes from "../Widgets/Recipes/Recipes";
 
-const greetings = {
-  morning: "Good morning, beautiful.",
-  afternoon: "Live and love every day like it's your last chance.",
-  evening: "You're perfect in every way.",
-  night: "Good night, sleep tight.",
-};
+// const greetings = {
+//   morning: "Good morning, beautiful.",
+//   afternoon: "Live and love every day like it's your last chance.",
+//   evening: "You're perfect in every way.",
+//   night: "Good night, sleep tight.",
+// };
 
-const pickGreeting = () => {
-  const today = new Date();
-  const now = today.getHours();
-  let greeting;
+// const pickGreeting = () => {
+//   const today = new Date();
+//   const now = today.getHours();
+//   let greeting;
 
-  if (now >= 21) {
-    greeting = greetings.night;
-  } else if (now >= 17) {
-    greeting = greetings.evening;
-  } else if (now >= 12) {
-    greeting = greetings.afternoon;
-  } else if (now >= 0) {
-    greeting = greetings.morning;
-  } else {
-    greeting = "Have a wonderful day!";
-  }
+//   if (now >= 21) {
+//     greeting = greetings.night;
+//   } else if (now >= 17) {
+//     greeting = greetings.evening;
+//   } else if (now >= 12) {
+//     greeting = greetings.afternoon;
+//   } else if (now >= 0) {
+//     greeting = greetings.morning;
+//   } else {
+//     greeting = "Have a wonderful day!";
+//   }
 
-  return greeting;
-};
+//   return greeting;
+// };
 
 const pickPul = (pul) => {
   const keys = Object.keys(pul);
@@ -47,15 +47,20 @@ const pickPul = (pul) => {
 const Dashboard = (props) => {
   const pickUpLine = pickPul(pul);
   const key = Object.keys(pickUpLine);
-  const greeting = pickGreeting();
+  // const greeting = pickGreeting();
 
   return (
     <React.Fragment>
       <div className="container-fluid main-container">
         <DateModal />
-        <div className="row">
+        {/* <div className="row">
           <div className="col-12 text-center p-3 greeting-container">
             <h2 className="greeting">{greeting}</h2>
+          </div>
+        </div> */}
+        <div className="row">
+          <div className="col-12 text-center p-3 greeting-container">
+            <h2 className="greeting">Hello, beautiful.</h2>
           </div>
         </div>
         <div className="row">
