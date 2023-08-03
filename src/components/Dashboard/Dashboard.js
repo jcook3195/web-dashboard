@@ -7,6 +7,7 @@ import DateModal from "../DateModal/DateModal";
 import Weather from "../Widgets/Weather/Weather";
 import Quotes from "../Widgets/Quotes/Quotes";
 import Recipes from "../Widgets/Recipes/Recipes";
+import Workout from "../Widgets/Workout/Workout";
 
 // const greetings = {
 //   morning: "Good morning, beautiful.",
@@ -83,6 +84,11 @@ const Dashboard = (props) => {
             <Recipes />
           </div>
         </div>
+        {/* <div className="row mt-4 mb-4">
+          <div className="col-12">
+            <Workout />
+          </div>
+        </div> */}
       </div>
     </React.Fragment>
   );
